@@ -3,88 +3,146 @@
 <html>
    <head>
       <title>my projects</title>
+	  <link rel="stylesheet" type="text/css" href="reset.css">
+	  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	  <link rel="stylesheet" type="text/css" href="styles.css">
    </head>
 
-   <body>
-		<style>
-			body{
-				background: gray;
-			}
-			
-			article{
-				display: none;
-			}
-			
-			article.visible{
-				display: block;
-			}
-		</style>
-
-
-       <nav>
-	      <div class="nav" id="homeBtn">Home</div>
-		  <div class="nav" id="cocApiBtn">CocApi</div>
-		  <div class="nav" id="themifyBtn">Themify</div>
-	   </nav>
+	<body>
+		
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<a class="navbar-brand" href="#">devhl labs</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarColor01">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#" id="aboutMeBtn">About Me<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" id="cocApiBtn">CocApi</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" id="themifyBtn">Themify</a>
+					</li>
+				</ul>
+			</div>
+			<a href="https://github.com/devhl-labs?tab=repositories">
+				<button type="button" class="btn btn-danger">GitHub</button>
+			</a>
+		</nav>
    
-		<main id="articles">
-			<article id="home">
-				<header>
-					<h1>Home article here</h1>
-					<p>
-						Welcome to my page. Click any of the links on the left to get information on my projects.</p>
-					</p>
-					<figure>
-						<img src="images/2013ManchuMile.jpg" alt="Soldiers out for a long walk" style="width:500px"/>
-						<figcaption>2013 Manchu Mile</figcaption>
-					<figure>
-				</header>
-			</article>
+		<main id="articles" class="ml-5 mt-5">
+		
+			<div class="container article d-block" id="aboutMe">
+				<div class="row">						
+					<div class="col-6">
+						<figure>
+							<img src="images/2013ManchuMile.jpg" alt="Soldiers out for a long walk" class="rounded"/>
+							<figcaption class="figure-caption">2013 Manchu Mile</figcaption>
+						</figure>
+					</div>
+					<div class="col-6">
+						<article>
+							<header><h1>About Me</h1></header>
+								<p>
+									I served in the United States Army for ten years, but my passion has always been programing. Click any of the links above to get information on my projects.
+								</p>							
+						</article>
+					</div>
+				</div>
+			</div>	
 			
-			<article id="cocApi">
-				<header>
-					<h1>CocApi</h1>
-					<p>CocApi is a wrapper for the Clash of Clans Api.  It is written in .Net Standard.</p>
-					<figure>
-						<img src="images/CocApiConsole.jpg" alt="Console output of the CocApi library" style="width:500px"/>
-						<figcaption>Console output</figcaption>
-					<figure>
-				</header>
-			</article>
+			<div class="container article d-none" id="cocApi">
+				<div class="row">						
+					<div class="col-6">
+						<figure>
+							<img src="images/CocApiConsole.jpg" alt="Console output of the CocApi library" class="rounded"/>
+							<figcaption class="figure-caption">Console Output</figcaption>
+						</figure>
+					</div>
+					<div class="col-6">
+						<article>
+							<header><h1>CocApi</h1></header>
+								<p>
+									CocApi is a wrapper for the Clash of Clans Api.  It is written in .Net Standard. This library is able to poll the clash API and fire events when a change is seen.
+								</p>
+								<p>
+									You can configure this library to watch the end points that you care about. You also have control over how long it considers a cached response valid for.
+								</p>							
+						</article>
+					</div>
+				</div>
+			</div>
 			
-			<article id="themify">
-				<header>
-					<h1>Themify Article here</h1>
-					<p>Themify is a Google Chrome extension. It will apply dark theme to your search results. The theme is customizable.</p>
-					<figure>
-						<img src="images/Themify.jpg" alt="Themify applies a dark theme to search results" style="width:500px"/>
-						<figcaption>Themify Dark Theme</figcaption>
-					<figure>
-				</header>
-			</article>
-			
-			<footer>
-				&copy2020
-			</footer>
+			<div class="container article d-none" id="themify">
+				<div class="row">						
+					<div class="col-6">
+						<figure>
+							<img src="images/Themify.jpg" alt="Themify applies a dark theme to search results" class="rounded"/>
+							<figcaption class="figure-caption">Dark theme enabled by Themify</figcaption>
+						</figure>
+					</div>
+					<div class="col-6">
+						<article>
+							<header><h1>Themify</h1></header>
+								<p>
+									Themify is a Google Chrome extension. It will apply dark theme to your search results. The theme is customizable.
+								</p>
+								<p>
+									There are four built-in CSS themes, and each one is fully customizable. If you don't like the default colors, or if you want to improve what's already there, just type the CSS changes in the popup window!
+								</p>								
+						</article>
+					</div>
+				</div>
+			</div>
+		
 		</main>
+   
+		<footer class="footer">
+			<div class="container text-center">
+				<span class="text-muted">				
+					&copy2020
+				</span>
+			</div>
+		</footer>
    
        <script>
 		'use strict';
-		document.getElementById('home').classList.add('visible');
 		 
 		function navigate(sender){
-			//let articles = document.getElementsByClassName('article');
-			let articles = document.getElementsByTagName('article');
+			let navItems = document.getElementsByClassName('nav-item');
+			for(let navItem of navItems){
+				navItem.className = removeClass(navItem.className, 'active');
+			}
+			sender.parentElement.className = sender.parentElement.className + ' active';
+		
+			let articles = document.getElementsByClassName('article');	
 			for(let article of articles){			
 				if (sender.id.indexOf(article.id) === -1){
-					article.className = article.className.replace(/\bvisible\b/g, "");				
+					article.className = replaceClass(article.className, "d-block", "d-none");
 				}else{
-					article.classList.add('visible');	
+					article.className = replaceClass(article.className, "d-none", "d-block");					
 				}
 			}
 		}
+		
+		function removeClass(classes, toRemove){
+			let arr = classes.split(' ');
+			arr = arr.filter(e => e !== toRemove);
+			return arr.join(' ');
+		}
+		
+		function replaceClass(classes, oldClass, newClass){
+			let arr = classes.split(' ');
+			for(let i = 0; i < arr.length; i++){
+				if (arr[i] === oldClass) arr[i] = newClass;
+			}
+			return arr.join(' ');
+		}	
 		 
-		 document.getElementById('homeBtn').onclick = function() {navigate(this)};
+		 document.getElementById('aboutMeBtn').onclick = function() {navigate(this)};
 		 document.getElementById('cocApiBtn').onclick = function() {navigate(this)};
 		 document.getElementById('themifyBtn').onclick = function() {navigate(this)};
 	   </script>

@@ -1,0 +1,9 @@
+.footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+div > div > figure > img{
+	width: 500px;
+}
