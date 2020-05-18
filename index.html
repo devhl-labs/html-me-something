@@ -6,22 +6,87 @@
    </head>
 
    <body>
+		<style>
+			body{
+				background: gray;
+			}
+			
+			article{
+				display: none;
+			}
+			
+			article.visible{
+				display: block;
+			}
+		</style>
+
 
        <nav>
-	      <div class="nav" nav="Home">Home</div>
-		  <div class="nav" nav="CocApi">CocApi</div>
-		  <div id="Themify">Themify</div>
+	      <div class="nav" id="homeBtn">Home</div>
+		  <div class="nav" id="cocApiBtn">CocApi</div>
+		  <div class="nav" id="themifyBtn">Themify</div>
 	   </nav>
    
-       <div id="Home">Home</div>
-	   <div id="CocApi">CocApi</div>
+		<main id="articles">
+			<article id="home">
+				<header>
+					<h1>Home article here</h1>
+					<p>
+						Welcome to my page. Click any of the links on the left to get information on my projects.</p>
+					</p>
+					<figure>
+						<img src="images/2013ManchuMile.jpg" alt="Soldiers out for a long walk" style="width:500px"/>
+						<figcaption>2013 Manchu Mile</figcaption>
+					<figure>
+				</header>
+			</article>
+			
+			<article id="cocApi">
+				<header>
+					<h1>CocApi</h1>
+					<p>CocApi is a wrapper for the Clash of Clans Api.  It is written in .Net Standard.</p>
+					<figure>
+						<img src="images/CocApiConsole.jpg" alt="Console output of the CocApi library" style="width:500px"/>
+						<figcaption>Console output</figcaption>
+					<figure>
+				</header>
+			</article>
+			
+			<article id="themify">
+				<header>
+					<h1>Themify Article here</h1>
+					<p>Themify is a Google Chrome extension. It will apply dark theme to your search results. The theme is customizable.</p>
+					<figure>
+						<img src="images/Themify.jpg" alt="Themify applies a dark theme to search results" style="width:500px"/>
+						<figcaption>Themify Dark Theme</figcaption>
+					<figure>
+				</header>
+			</article>
+			
+			<footer>
+				&copy2020
+			</footer>
+		</main>
    
        <script>
-	     document.getElementById("CocApi").visibility(false);
+		'use strict';
+		document.getElementById('home').classList.add('visible');
+		 
+		function navigate(sender){
+			//let articles = document.getElementsByClassName('article');
+			let articles = document.getElementsByTagName('article');
+			for(let article of articles){			
+				if (sender.id.indexOf(article.id) === -1){
+					article.className = article.className.replace(/\bvisible\b/g, "");				
+				}else{
+					article.classList.add('visible');	
+				}
+			}
+		}
+		 
+		 document.getElementById('homeBtn').onclick = function() {navigate(this)};
+		 document.getElementById('cocApiBtn').onclick = function() {navigate(this)};
+		 document.getElementById('themifyBtn').onclick = function() {navigate(this)};
 	   </script>
-   
-   
-   
-   
    </body>
 </html>
